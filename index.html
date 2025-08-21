@@ -55,7 +55,30 @@
     /* micro interactions */
     .reveal{opacity:0;transform:translateY(12px);}
     .reveal.show{opacity:1;transform:none;transition:.7s ease-out}
-    .ring{box-shadow:0 0 0 8px rgba(34,211,238,.08)}
+    .ring{ box-shadow:0 0 0 4px rgba(34,211,238,.08); } /* was 8px */
+    /* portrait container to preserve aspect */
+/* smaller hero portrait + lighter frame */
+.portrait{
+  width: clamp(350px, 26vw, 210px);   /* ← sets a smaller, responsive width */
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(80% 60% at 50% 20%, rgba(34,211,238,.18), transparent),
+    radial-gradient(80% 60% at 60% 80%, rgba(167,139,250,.18), transparent);
+}
+.portrait img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.hero .card.ring{
+  width: fit-content;       /* shrink-wrap */
+  margin-left: auto;        /* keep it aligned to the right column edge */
+  margin-right: 0;
+}
+
   </style>
 </head>
 <body>
@@ -71,7 +94,8 @@
         <a href="#dishes">Dishes</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="btn" style="padding:.55rem .9rem;border-radius:12px">Book a Shift</a>
+        <!-- Book a Shift -> mailto -->
+        <a href="mailto:subashdhital06@gmail.com" class="btn" style="padding:.55rem .9rem;border-radius:12px">Book a Shift</a>
       </nav>
       <button id="menuBtn" class="btn ghost" aria-label="Toggle Menu" style="display:inline-flex;align-items:center;gap:.4rem">
         <span>Menu</span>
@@ -84,7 +108,7 @@
   <section class="hero" id="home">
     <div class="container grid g-2">
       <div class="reveal">
-        <span class="badge">Premium culinary profile</span>
+        <span class="badge">My culinary profile</span>
         <h1 class="h1">Calm under rush. Consistent on plate. Hospitality first.</h1>
         <p class="muted" style="max-width:640px">Cook & Assistant Manager with 5 years in a family restaurant back home, Chipotle crew experience, and current leadership at a Barrie family restaurant.</p>
         <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
@@ -105,10 +129,9 @@
       <div class="reveal">
         <div class="card ring">
           <div class="p" style="padding:10px">
-            <div style="border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.35))">
-              <div style="display:grid;place-items:end;aspect-ratio:4/5;background:radial-gradient(80% 60% at 50% 20%, rgba(34,211,238,.18), transparent), radial-gradient(80% 60% at 60% 80%, rgba(167,139,250,.18), transparent)">
-                <img src="logo.png" alt="Portrait of Subash Dhital" style="width:100%;height:100%;object-fit:contain"/>
-              </div>
+            <div class="portrait">
+              <!-- Fixed image sizing and containment -->
+              <img src="logo.png" alt="Portrait of Subash Dhital"/>
             </div>
           </div>
         </div>
@@ -132,21 +155,21 @@
       <h2 class="section-title">Experience</h2>
       <div class="xp-grid" style="margin-top:18px">
         <div class="card xp reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1628410040883-c412c8d9a0f9?q=80&w=3164&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
           <div class="p">
             <h3 style="margin:0 0 6px 0">Family Restaurant — Line Cook</h3>
             <p class="muted">5 years across prep, grill, fry, and expo. Batch prep, FIFO, sanitation.</p>
           </div>
         </div>
         <div class="card xp reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31b?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0');"></div>
           <div class="p">
             <h3 style="margin:0 0 6px 0">Chipotle — Crew Member</h3>
             <p class="muted">High‑volume service, mise en place, freshness checks, guest line engagement.</p>
           </div>
         </div>
         <div class="card xp reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p">
             <h3 style="margin:0 0 6px 0">Barrie Family Restaurant — Assistant Manager</h3>
             <p class="muted">Shift leadership, scheduling, ordering & waste tracking, service recovery.</p>
@@ -162,27 +185,27 @@
       <h2 class="section-title">Signature Dishes</h2>
       <div class="gallery" style="margin-top:18px">
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1604908554027-432c0c4df6d8?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Grilled Chicken Plate</strong><div class="muted">Herbed rice • seasonal veg</div></div>
         </div>
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1604908176997-4293bcd576d9?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Burrito Bowl</strong><div class="muted">Fresh toppings • fast line</div></div>
         </div>
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1546554137-f86b9593a222?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Homestyle Curry</strong><div class="muted">Slow-cooked • balanced spice</div></div>
         </div>
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Smash Burger</strong><div class="muted">Crisp sear • house sauce</div></div>
         </div>
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Loaded Fries</strong><div class="muted">Hot hold • consistent portion</div></div>
         </div>
         <div class="card dish reveal">
-          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1600&q=80');"></div>
           <div class="p"><strong>Breakfast Platter</strong><div class="muted">Brunch rush specialist</div></div>
         </div>
       </div>
@@ -215,18 +238,6 @@
     </div>
   </section>
 
-  <!-- ===== Pull Quote ===== -->
-  <section>
-    <div class="container reveal">
-      <div class="card">
-        <div class="p" style="padding:36px;text-align:center">
-          <blockquote style="font-size:1.35rem;font-weight:600;line-height:1.5">“Subash keeps the line calm during the lunch rush, communicates clearly, and plates consistently. Exactly who you want running a busy shift.”</blockquote>
-          <div class="muted" style="margin-top:6px">— Former colleague</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== Contact ===== -->
   <section id="contact">
     <div class="container cta">
@@ -237,13 +248,27 @@
           <a class="card" href="tel:14376603457"><div class="p" style="display:flex;align-items:center;gap:10px"><span>📞</span> 437 660 3457</div></a>
           <a class="card" href="mailto:subashdhital06@gmail.com"><div class="p" style="display:flex;align-items:center;gap:10px"><span>✉️</span> subashdhital06@gmail.com</div></a>
           <div class="card"><div class="p" style="display:flex;align-items:center;gap:10px"><span>📍</span> Barrie / Toronto, ON</div></div>
-          <a href="#" class="btn" style="width:max-content">Request Availability</a>
+          <a href="mailto:subashdhital06@gmail.com" class="btn" style="width:max-content">Request Availability</a>
         </div>
       </div>
+
+      <!-- Working form via FormSubmit (no backend needed on Vercel) -->
       <div class="card reveal">
         <div class="p">
-          <h3 style="margin:0 0 8px 0">Quick Note</h3>
-          <p class="muted" style="margin:0">This site is static and fast. If you want a working form, I can wire Formspree/Netlify in minutes.</p>
+          <h3 style="margin:0 0 8px 0">Send a Message</h3>
+          <form action="https://formsubmit.co/subashdhital06@gmail.com" method="POST" style="display:grid;gap:10px">
+            <!-- Protect from spam -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="_next" value="#thanks" />
+            <input type="hidden" name="_subject" value="New message from subashdhital.com" />
+            <input type="hidden" name="_captcha" value="false" />
+
+            <input required name="name" placeholder="Your name" style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg)" />
+            <input required type="email" name="email" placeholder="Email" style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg)" />
+            <textarea required name="message" rows="4" placeholder="What role / shift are you hiring for?" style="padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.05);color:var(--fg)"></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+          <div id="thanks" class="muted" style="margin-top:8px">Thanks! If you see this anchor after submit, your message was sent.</div>
         </div>
       </div>
     </div>
