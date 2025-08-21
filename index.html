@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Subash Dhital · Culinary Portfolio</title>
+  <meta name="description" content="Cook & Assistant Manager based in Barrie/Toronto. Calm under rush, consistent on plate, hospitality first." />
+  <meta property="og:title" content="Subash Dhital · Culinary Portfolio" />
+  <meta property="og:description" content="Cook & Assistant Manager based in Barrie/Toronto. Calm under rush, consistent on plate, hospitality first." />
+  <meta property="og:image" content="logo.png" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;--fg:#e6e9ef;--muted:#a8b0c3;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.12);
+      --brand1:#22d3ee;--brand2:#a78bfa;--brand3:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1000px 500px at 15% -5%, rgba(34,211,238,.22), transparent),
+      radial-gradient(900px 400px at 115% 10%, rgba(167,139,250,.18), transparent), var(--bg); color:var(--fg); font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"; scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.1rem;border-radius:16px;background:linear-gradient(90deg,var(--brand1),var(--brand2));color:#001019;font-weight:600;border:0;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+    .badge{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .6rem;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid var(--line);font-size:.72rem;color:var(--muted)}
+    header{position:sticky;top:0;z-index:50;background:rgba(7,13,27,.6);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+    nav a{padding:.6rem .9rem;border-radius:12px;font-size:.92rem}
+    nav a:hover{background:rgba(255,255,255,.08)}
+    .hero{padding:80px 0}
+    .grid{display:grid;gap:24px}
+    .g-2{grid-template-columns:1fr}
+    @media(min-width:900px){.g-2{grid-template-columns:1.1fr .9fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:24px;overflow:hidden}
+    .card .p{padding:20px}
+    .h1{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:12px 0 10px;font-weight:800}
+    .muted{color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    @media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+    .stat{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:18px;padding:14px 16px}
+    .stat .v{font-weight:700}
+    section{padding:72px 0}
+    .section-title{font-size:1.75rem;font-weight:700}
+    .xp-grid{display:grid;gap:18px}
+    @media(min-width:900px){.xp-grid{grid-template-columns:repeat(3,1fr)}}
+    .xp .img{aspect-ratio:16/9;background:#111;background-size:cover;background-position:center}
+    .gallery{display:grid;gap:18px}
+    @media(min-width:900px){.gallery{grid-template-columns:repeat(3,1fr)}}
+    .dish .img{aspect-ratio:4/3;background:#111;background-size:cover;background-position:center}
+    .cta{display:grid;gap:18px;grid-template-columns:1fr}
+    @media(min-width:900px){.cta{grid-template-columns:2fr 1fr}}
+    footer{border-top:1px solid var(--line);padding:32px 0;color:#b8c0d0}
+    /* micro interactions */
+    .reveal{opacity:0;transform:translateY(12px);}
+    .reveal.show{opacity:1;transform:none;transition:.7s ease-out}
+    .ring{box-shadow:0 0 0 8px rgba(34,211,238,.08)}
+  </style>
+</head>
+<body>
+  <!-- ===== Nav ===== -->
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px">
+      <a href="#home" style="display:flex;align-items:center;gap:12px">
+        <img src="logo.png" alt="Subash Dhital" width="40" height="40" style="border-radius:999px;border:1px solid var(--line)" />
+        <strong>Subash Dhital</strong>
+      </a>
+      <nav style="display:none;gap:6px" id="navLinks">
+        <a href="#experience">Experience</a>
+        <a href="#dishes">Dishes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn" style="padding:.55rem .9rem;border-radius:12px">Book a Shift</a>
+      </nav>
+      <button id="menuBtn" class="btn ghost" aria-label="Toggle Menu" style="display:inline-flex;align-items:center;gap:.4rem">
+        <span>Menu</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="container grid g-2">
+      <div class="reveal">
+        <span class="badge">Premium culinary profile</span>
+        <h1 class="h1">Calm under rush. Consistent on plate. Hospitality first.</h1>
+        <p class="muted" style="max-width:640px">Cook & Assistant Manager with 5 years in a family restaurant back home, Chipotle crew experience, and current leadership at a Barrie family restaurant.</p>
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="badge">Food Safety</span>
+          <span class="badge">Shift Leadership</span>
+          <span class="badge">Cost Control</span>
+          <span class="badge">Prep Systems</span>
+          <span class="badge">Expo</span>
+          <span class="badge">High‑volume Service</span>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#dishes" class="btn">See Signature Dishes
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7" stroke="#001019" stroke-width="2" stroke-linecap="round"/><path d="M7 7h10v10" stroke="#001019" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
+          <a href="#contact" class="btn ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="card ring">
+          <div class="p" style="padding:10px">
+            <div style="border-radius:22px;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.35))">
+              <div style="display:grid;place-items:end;aspect-ratio:4/5;background:radial-gradient(80% 60% at 50% 20%, rgba(34,211,238,.18), transparent), radial-gradient(80% 60% at 60% 80%, rgba(167,139,250,.18), transparent)">
+                <img src="logo.png" alt="Portrait of Subash Dhital" style="width:100%;height:100%;object-fit:contain"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Stats ===== -->
+  <section>
+    <div class="container stats reveal">
+      <div class="stat"><div class="v">5+ years</div><div class="muted" style="font-size:.82rem">On the line</div></div>
+      <div class="stat"><div class="v">&lt;10 min</div><div class="muted" style="font-size:.82rem">Avg. ticket time</div></div>
+      <div class="stat"><div class="v">Grill • Fry • Prep</div><div class="muted" style="font-size:.82rem">Stations</div></div>
+      <div class="stat"><div class="v">Assistant Mgr.</div><div class="muted" style="font-size:.82rem">Team leadership</div></div>
+    </div>
+  </section>
+
+  <!-- ===== Experience ===== -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div class="xp-grid" style="margin-top:18px">
+        <div class="card xp reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="p">
+            <h3 style="margin:0 0 6px 0">Family Restaurant — Line Cook</h3>
+            <p class="muted">5 years across prep, grill, fry, and expo. Batch prep, FIFO, sanitation.</p>
+          </div>
+        </div>
+        <div class="card xp reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1586201375761-83865001e31b?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="p">
+            <h3 style="margin:0 0 6px 0">Chipotle — Crew Member</h3>
+            <p class="muted">High‑volume service, mise en place, freshness checks, guest line engagement.</p>
+          </div>
+        </div>
+        <div class="card xp reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop');"></div>
+          <div class="p">
+            <h3 style="margin:0 0 6px 0">Barrie Family Restaurant — Assistant Manager</h3>
+            <p class="muted">Shift leadership, scheduling, ordering & waste tracking, service recovery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Signature Dishes ===== -->
+  <section id="dishes">
+    <div class="container">
+      <h2 class="section-title">Signature Dishes</h2>
+      <div class="gallery" style="margin-top:18px">
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1604908554027-432c0c4df6d8?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Grilled Chicken Plate</strong><div class="muted">Herbed rice • seasonal veg</div></div>
+        </div>
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1604908176997-4293bcd576d9?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Burrito Bowl</strong><div class="muted">Fresh toppings • fast line</div></div>
+        </div>
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1546554137-f86b9593a222?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Homestyle Curry</strong><div class="muted">Slow-cooked • balanced spice</div></div>
+        </div>
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1550317138-10000687a72b?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Smash Burger</strong><div class="muted">Crisp sear • house sauce</div></div>
+        </div>
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Loaded Fries</strong><div class="muted">Hot hold • consistent portion</div></div>
+        </div>
+        <div class="card dish reveal">
+          <div class="img" style="background-image:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop');"></div>
+          <div class="p"><strong>Breakfast Platter</strong><div class="muted">Brunch rush specialist</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About / Value ===== -->
+  <section id="about">
+    <div class="container cta">
+      <div class="card reveal">
+        <div class="p">
+          <h2 class="section-title">A $1,000‑level polish without agency overhead</h2>
+          <p class="muted" style="margin-top:6px;max-width:60ch">Subtle motion, crisp typography, and a clear story of reliability. Built to help hiring managers quickly see readiness for busy kitchens and leadership on shift.</p>
+          <ul class="muted" style="margin-top:10px;line-height:1.9">
+            <li>Clean station setup and closing routines</li>
+            <li>Recipe consistency & portion control</li>
+            <li>Tempo management during rushes</li>
+            <li>Guest experience & service recovery</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="p">
+          <h3 style="margin:0 0 8px 0">Availability</h3>
+          <p class="muted" style="margin:0 0 4px 0">Weekdays: Evenings</p>
+          <p class="muted" style="margin:0 0 4px 0">Weekends: Flexible</p>
+          <p class="muted" style="margin:0">Locations: Barrie • Toronto</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Pull Quote ===== -->
+  <section>
+    <div class="container reveal">
+      <div class="card">
+        <div class="p" style="padding:36px;text-align:center">
+          <blockquote style="font-size:1.35rem;font-weight:600;line-height:1.5">“Subash keeps the line calm during the lunch rush, communicates clearly, and plates consistently. Exactly who you want running a busy shift.”</blockquote>
+          <div class="muted" style="margin-top:6px">— Former colleague</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact">
+    <div class="container cta">
+      <div class="reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="muted" style="margin-top:6px">Reach out for kitchen roles or assistant manager shifts.</p>
+        <div style="display:grid;gap:10px;margin-top:14px">
+          <a class="card" href="tel:14376603457"><div class="p" style="display:flex;align-items:center;gap:10px"><span>📞</span> 437 660 3457</div></a>
+          <a class="card" href="mailto:subashdhital06@gmail.com"><div class="p" style="display:flex;align-items:center;gap:10px"><span>✉️</span> subashdhital06@gmail.com</div></a>
+          <div class="card"><div class="p" style="display:flex;align-items:center;gap:10px"><span>📍</span> Barrie / Toronto, ON</div></div>
+          <a href="#" class="btn" style="width:max-content">Request Availability</a>
+        </div>
+      </div>
+      <div class="card reveal">
+        <div class="p">
+          <h3 style="margin:0 0 8px 0">Quick Note</h3>
+          <p class="muted" style="margin:0">This site is static and fast. If you want a working form, I can wire Formspree/Netlify in minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Subash Dhital</div>
+      <a href="#home" class="muted">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const mq = window.matchMedia('(min-width: 900px)');
+    function syncNav(){ navLinks.style.display = mq.matches ? 'flex' : 'none'; menuBtn.style.display = mq.matches ? 'none' : 'inline-flex'; }
+    syncNav(); mq.addEventListener('change', syncNav);
+    menuBtn.addEventListener('click',()=>{ navLinks.style.display = navLinks.style.display==='none' ? 'flex' : 'none'; });
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
